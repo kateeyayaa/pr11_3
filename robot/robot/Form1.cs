@@ -30,63 +30,79 @@ namespace robot
 
         private void button1_Click(object sender, EventArgs e)
         {
-            robot robot1 = new robot();
-            robot robot2 = new robot();
-            robot robot3 = new robot();
-            if (textBox1.Text=="")
-            {
-                MessageBox.Show("Введите жизнь робота!");
-                return;
-            }
-            if (textBox2.Text == "")
-            {
-                MessageBox.Show("Введите жизнь робота!");
-                return;
-            }
-            if (textBox3.Text == "")
-            {
-                MessageBox.Show("Введите жизнь робота!");
-                return;
-            }
-            label6.Visible = true;
-            label4.Visible = true;
-            label10.Visible = true;
-            label8.Visible = true;
-            label5.Visible = true;
-            label9.Visible = true;
-            robot1.kollife = Convert.ToInt32(textBox1.Text);
-            label6.Text = "Количество жизней робота1 в начале игры " + robot1.kollife;
-
-            robot2.kollife = Convert.ToInt32(textBox2.Text);
-            label4.Text = "Количество жизней робота2 в начале игры " + robot2.kollife;
-
-            robot3.kollife = Convert.ToInt32(textBox3.Text);
-            label10.Text = "Количество жизней робота3 в начале игры " + robot3.kollife;
-
-            int a = robot1.kollife;
-
-            robot1.Min(robot1.kollife);
-
-            label8.Text = "Количество жизней робота1 в конце игры " +
-                          robot1.getlife();
-
-            robot2.Kol(a, robot1.kollife);
-            label5.Text = "Количество жизней робота2 в конце игры " +
-                          robot2.getlife();
-
-            robot3.Kol(a, robot1.kollife);
-            label9.Text = "Количество жизней робота3 в конце игры " +
-                          robot3.getlife();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            label6.Visible = false;
-            label4.Visible = false;
-            label10.Visible = false;
-            label8.Visible = false;
-            label5.Visible = false;
-            label9.Visible=false;
+            label14.Visible = false;
+            label15.Visible = false;
+            label16.Visible = false;
+            label11.Text = "Робот1: ";
+            label12.Text = "Робот2: ";
+            label13.Text = "Робот3: ";
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        { label14.Visible = true;
+            label15.Visible = true;
+            label16.Visible = true;
+            if (textBox4.Text == "")
+            {
+                MessageBox.Show("введите жизнь робота");
+                return;
+            }
+
+            if (textBox5.Text == "")
+            {
+                MessageBox.Show("введите жизнь робота");
+                return;
+            }
+
+            if (textBox6.Text == "")
+            {
+                MessageBox.Show("введите жизнь робота");
+                return;
+            }
+            Robot[] robots = new Robot[3];
+            for (int i = 0; i < 3; i++)
+                robots[i] = new Robot();
+
+            // Чтение жизней из текстбоксов
+            robots[0].SetLife(Convert.ToInt32(textBox4.Text));
+            robots[1].SetLife(Convert.ToInt32(textBox5.Text));
+            robots[2].SetLife(Convert.ToInt32(textBox6.Text));
+
+            // Вывод начальных жизней
+            label11.Text = "Робот1: " + robots[0].GetLife();
+            label12.Text = "Робот2: " + robots[1].GetLife();
+            label13.Text = "Робот3: " + robots[2].GetLife();
+
+            // Уменьшаем жизнь первого робота
+            int initialLife = robots[0].GetLife();
+            robots[0].Min(initialLife);
+            int lifeAfterMin = robots[0].GetLife();
+
+
+            for (int i = 1; i < robots.Length; i++)
+            {
+                robots[i].Kol(initialLife, lifeAfterMin);
+            }
+           
+            // Вывод жизней после игры
+            label14.Text = "Робот1 после игры: " + robots[0].GetLife();
+            label15.Text = "Робот2 после игры: " + robots[1].GetLife();
+            label16.Text = "Робот3 после игры: " + robots[2].GetLife();
         }
     }
 }

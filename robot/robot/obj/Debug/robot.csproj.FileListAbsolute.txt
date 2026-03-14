@@ -9,3 +9,14 @@ C:\Users\user\Desktop\файлы\robot\robot\obj\Debug\robot.csproj.CoreCompileI
 C:\Users\user\Desktop\файлы\robot\robot\obj\Debug\robot.exe
 C:\Users\user\Desktop\файлы\robot\robot\obj\Debug\robot.pdb
 C:\Users\user\Desktop\файлы\robot\robot\obj\Debug\robot.exe.config
+C:\Users\user\Desktop\робот\robot\robot\bin\Debug\robot.exe.config
+C:\Users\user\Desktop\робот\robot\robot\bin\Debug\robot.exe
+C:\Users\user\Desktop\робот\robot\robot\bin\Debug\robot.pdb
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.exe.config
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.Form1.resources
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.Properties.Resources.resources
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.csproj.GenerateResource.cache
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.exe
+C:\Users\user\Desktop\робот\robot\robot\obj\Debug\robot.pdb

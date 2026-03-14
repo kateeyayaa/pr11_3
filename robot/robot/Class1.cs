@@ -6,49 +6,41 @@ using System.Threading.Tasks;
 
 namespace robot
 {
-    internal class robot
+    internal class Robot
     {
-        public int kollife;
+        private int kollife;
 
-        // Получить количество жизней
-        public int getlife()
+        public int GetLife() // метод для чтения закрытого поля
         {
             return kollife;
         }
 
-        // Уменьшение количества жизней
+        // Метод уменьшения жизни
         public void Min(int a)
         {
-            Random rn = new Random();
-            int r = rn.Next(0, 2); // 0 или 1
-
             kollife = a;
 
-            if (r == 0)
-            {
-                // уменьшение на 50%
-                kollife = (int)(kollife * 0.5);
-            }
-            else
-            {
-                // уменьшение на 30%
-                kollife = (int)(kollife * 0.7);
-            }
+            // уменьшение жизни на 50%
+            kollife = kollife / 2;
         }
 
-        // Увеличение жизней других роботов
+        // Метод для увеличения жизни других роботов
+        // a = начальная жизнь робота, k = текущая жизнь после уменьшения
         public void Kol(int a, int k)
         {
-            int percent = (a - k) * 100 / a;
+            int diffPercent = (int)(((a - k) * 100.0) / a);
 
-            if (percent >= 50)
-            {
-                kollife = kollife + 30;
-            }
-            else if (percent >= 30)
-            {
-                kollife = kollife + 20;
-            }
+            if (diffPercent == 50)
+                kollife += 30;
+            else if (diffPercent == 30)
+                kollife += 20;
         }
+
+        // Метод для задания жизни с клавиатуры
+        public void SetLife(int life)
+        {
+            kollife = life;
+        }
+
     }
 }
